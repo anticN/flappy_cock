@@ -1,8 +1,10 @@
 import 'package:flame/game.dart';
+import 'package:flappy_cock/game/flappy_cock_game.dart';
 import 'package:flutter/material.dart';
-import 'components/game.dart';
 
 
 void main() {
-  runApp(GameWidget(game: FlappyGame()));
+  final game = FlappyCockGame();
+
+  runApp(GameWidget(game: game));
 }
