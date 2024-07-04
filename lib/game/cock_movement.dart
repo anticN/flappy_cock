@@ -1,0 +1,1 @@
+enum CockMovement { middle, up, down}
