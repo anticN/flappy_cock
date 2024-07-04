@@ -9,7 +9,7 @@ import 'package:flappy_cock/components/pipe_combo.dart';
 import 'package:flappy_cock/components/player.dart';
 import 'package:flappy_cock/game/configuration.dart';
 
-class FlappyCockGame extends FlameGame with TapDetector{
+class FlappyCockGame extends FlameGame with TapDetector, HasCollisionDetection{
   FlappyCockGame();
   
   late Player cock;

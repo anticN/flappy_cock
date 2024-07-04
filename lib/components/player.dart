@@ -1,3 +1,4 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flappy_cock/game/assets.dart';
@@ -6,7 +7,7 @@ import 'package:flappy_cock/game/configuration.dart';
 import 'package:flappy_cock/game/flappy_cock_game.dart';
 import 'package:flutter/widgets.dart';
 
-class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCockGame> {
+class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCockGame>, CollisionCallbacks {
   Player();
 
   @override
@@ -23,6 +24,8 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
       CockMovement.up: cockUp,
       CockMovement.down: cockDown
     };
+
+    add(CircleHitbox());
   }
 
   void fly() {
@@ -32,6 +35,19 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
         onComplete: () => current = CockMovement.down,)
     );
     current = CockMovement.up;
+  }
+
+  @override
+  void onCollisionStart(
+    Set<Vector2> intersectionPnts,
+    PositionComponent other,
+  ) {
+    super.onCollisionStart(intersectionPnts, other);
+    gameOver();
+  }
+
+  void gameOver() {
+    gameRef.pauseEngine();
   }
 
   @override
