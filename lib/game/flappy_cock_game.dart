@@ -1,5 +1,6 @@
 
 
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/timer.dart';
 import 'package:flappy_cock/components/background.dart';
@@ -8,7 +9,7 @@ import 'package:flappy_cock/components/pipe_combo.dart';
 import 'package:flappy_cock/components/player.dart';
 import 'package:flappy_cock/game/configuration.dart';
 
-class FlappyCockGame extends FlameGame {
+class FlappyCockGame extends FlameGame with TapDetector{
   FlappyCockGame();
   
   late Player cock;
@@ -23,6 +24,12 @@ class FlappyCockGame extends FlameGame {
     ]);
 
     interval.onTick = () => add(PipeCombo());
+  }
+
+  @override
+  void onTap() {
+    super.onTap();
+    cock.fly();
   }
 
   @override
