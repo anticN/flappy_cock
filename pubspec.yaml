@@ -15,6 +15,7 @@ dependencies:
   flame_audio: ^2.1.2
   light_sensor: ^3.0.0
   vibration: ^1.8.4
+  dcdg: ^4.1.0
 
 flutter:
   assets:

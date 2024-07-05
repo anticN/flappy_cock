@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flappy_cock/game/assets.dart';
 import 'package:flappy_cock/game/flappy_cock_game.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +26,13 @@ class StartPage extends StatelessWidget {
           ),
 
           child: Column(children: [
+            const Text(
+              'Flappy Cock',
+              style: TextStyle(
+                fontSize: 50,
+                color: Colors.blue
+              ),
+            ),
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
@@ -35,14 +40,6 @@ class StartPage extends StatelessWidget {
                 game.resumeEngine();
               },
               child: const Text('Play'),
-            ),
-
-            const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: () {
-                debugPrint('Settings');
-              },
-              child: const Text('Settings'),
             ),
 
             const SizedBox(height: 40),

@@ -39,7 +39,6 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
         onComplete: () => current = CockMovement.down,)
     );
     current = CockMovement.up;
-    FlameAudio.play(Assets.testAudio);
   }
 
   @override
@@ -60,6 +59,7 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
     gameRef.overlays.add('gameOver');
     gameRef.pauseEngine();
     Vibration.vibrate(duration: 250);
+    FlameAudio.play(Assets.gameOverSound);
     game.isHit = true;
   }
 
