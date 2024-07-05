@@ -26,6 +26,7 @@ class StartPage extends StatelessWidget {
           ),
 
           child: Column(children: [
+            const SizedBox(height: 100,),
             const Text(
               'Flappy Cock',
               style: TextStyle(

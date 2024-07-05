@@ -1,4 +1,4 @@
-import 'package:flappy_cock/game/assets.dart';
+import 'package:flame/components.dart';
 import 'package:flappy_cock/game/flappy_cock_game.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,10 @@ class GameOverPage extends StatelessWidget {
       color: Colors.black38,
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const SizedBox(height: 250, width: 3000,),
           Text(
             'Score: ${game.cock.score}',
             style: const TextStyle(
@@ -22,7 +25,13 @@ class GameOverPage extends StatelessWidget {
               color: Colors.white
             ),
           ),
-          Image.asset(Assets.gameOver),
+          Text(
+            'Game Over!',
+            style: const TextStyle(
+              fontSize: 50,
+              color: Colors.red
+            ),
+          ),
           const SizedBox(height: 20,),
           ElevatedButton(
             onPressed: onRestart, 
