@@ -15,6 +15,13 @@ class GameOverPage extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Text(
+            'Score: ${game.cock.score}',
+            style: const TextStyle(
+              fontSize: 60,
+              color: Colors.white
+            ),
+          ),
           Image.asset(Assets.gameOver),
           const SizedBox(height: 20,),
           ElevatedButton(

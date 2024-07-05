@@ -34,13 +34,17 @@ class PipeCombo extends PositionComponent with HasGameRef<FlappyCockGame>{
 
     if (position.x < -35) {
       removeFromParent();
-      debugPrint('Removed');
+      updateScore();
     }
 
     if (gameRef.isHit) {
       removeFromParent();
       gameRef.isHit = false;
     }
+  }
+
+  void updateScore() {
+    gameRef.cock.score += 1;
   }
 
 }

@@ -10,6 +10,8 @@ import 'package:flutter/widgets.dart';
 class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCockGame>, CollisionCallbacks {
   Player();
 
+  int score = 0;
+
   @override
   Future<void> onLoad() async {
     final cock = await gameRef.loadSprite(Assets.cock);
@@ -48,6 +50,7 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
 
   void reset() {
     position = Vector2(50, gameRef.size.y / 2 - size.y / 2);
+    score = 0;
   }
 
   void gameOver() {

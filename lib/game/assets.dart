@@ -10,4 +10,6 @@ class Assets {
   static const cock = 'cock.png';
   static const cockUp = 'cock_up.png';
   static const cockDown = 'cock_down.png';
+
+  static const testAudio = 'test.txt';
 }
