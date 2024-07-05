@@ -36,6 +36,11 @@ class PipeCombo extends PositionComponent with HasGameRef<FlappyCockGame>{
       removeFromParent();
       debugPrint('Removed');
     }
+
+    if (gameRef.isHit) {
+      removeFromParent();
+      gameRef.isHit = false;
+    }
   }
 
 }

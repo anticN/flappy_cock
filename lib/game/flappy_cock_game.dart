@@ -14,6 +14,7 @@ class FlappyCockGame extends FlameGame with TapDetector, HasCollisionDetection{
   
   late Player cock;
   Timer interval = Timer(Config.pipeInterval, repeat: true);
+  bool isHit = false;
 
   @override
   Future<void> onLoad() async {
