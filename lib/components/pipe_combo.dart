@@ -5,7 +5,6 @@ import 'package:flappy_cock/components/pipe.dart';
 import 'package:flappy_cock/game/configuration.dart';
 import 'package:flappy_cock/game/flappy_cock_game.dart';
 import 'package:flappy_cock/game/pipe_position.dart';
-import 'package:flutter/foundation.dart';
 
 class PipeCombo extends PositionComponent with HasGameRef<FlappyCockGame>{
   PipeCombo();

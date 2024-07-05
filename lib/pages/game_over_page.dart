@@ -27,7 +27,13 @@ class GameOverPage extends StatelessWidget {
           ElevatedButton(
             onPressed: onRestart, 
             style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-            child: const Text('Restart', style: TextStyle(fontSize: 20),))
+            child: const Text('Restart', style: TextStyle(fontSize: 20),)),
+
+          const SizedBox(height: 20,),
+          ElevatedButton(
+            onPressed: onHome, 
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+            child: const Text('Home Screen', style: TextStyle(fontSize: 20),))
         ],
       ),
     );
@@ -38,4 +44,11 @@ class GameOverPage extends StatelessWidget {
     game.overlays.remove('gameOver');
     game.resumeEngine();
   }  
+
+  void onHome() {
+    game.cock.reset();
+    game.pauseEngine();
+    game.overlays.remove('gameOver');
+    game.overlays.add('startPage');
+  }
 }

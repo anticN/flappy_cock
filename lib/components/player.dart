@@ -1,11 +1,13 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_cock/game/assets.dart';
 import 'package:flappy_cock/game/cock_movement.dart';
 import 'package:flappy_cock/game/configuration.dart';
 import 'package:flappy_cock/game/flappy_cock_game.dart';
 import 'package:flutter/widgets.dart';
+import 'package:vibration/vibration.dart';
 
 class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCockGame>, CollisionCallbacks {
   Player();
@@ -37,6 +39,7 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
         onComplete: () => current = CockMovement.down,)
     );
     current = CockMovement.up;
+    FlameAudio.play(Assets.testAudio);
   }
 
   @override
@@ -56,6 +59,7 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
   void gameOver() {
     gameRef.overlays.add('gameOver');
     gameRef.pauseEngine();
+    Vibration.vibrate(duration: 250);
     game.isHit = true;
   }
 
@@ -63,5 +67,8 @@ class Player extends SpriteGroupComponent<CockMovement> with HasGameRef<FlappyCo
   void update(double dt) {
     super.update(dt);
     position.y += Config.cockVelocity * dt;
+    if (position.y < 1) {
+      gameOver();
+    }
   }
 }

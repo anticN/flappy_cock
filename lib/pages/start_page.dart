@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flappy_cock/game/assets.dart';
 import 'package:flappy_cock/game/flappy_cock_game.dart';
 import 'package:flutter/material.dart';
@@ -52,12 +54,6 @@ class StartPage extends StatelessWidget {
             ),
             
           ],),
-          /*child: FloatingActionButton(
-            onPressed: () => {
-              game.overlays.remove('startPage'),
-              game.resumeEngine(),
-            },
-            child: const Text("Play"),),*/
         ),
       ),
     );
